@@ -181,15 +181,11 @@
   }
 
   function loadVideo(url) {
-    showToast('🎬 Video incoming!');
-    var frame = document.getElementById('vid-frame');
-    frame.removeAttribute('src');
-    var embed = toEmbedUrl(url);
-    setTimeout(function(){ frame.setAttribute('src', embed); }, 100);
+    showToast('🎬 Opening in new tab...');
+    // Open directly in a new tab — works with YouTube app links too
+    window.open(url, '_blank');
     document.getElementById('now-url').textContent = url;
     document.getElementById('recv-time').textContent = new Date().toLocaleTimeString();
-    document.getElementById('idle').style.display = 'none';
-    document.getElementById('player').classList.add('active');
   }
 
   function goIdle() {
